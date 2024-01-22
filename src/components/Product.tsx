@@ -28,9 +28,6 @@ const Product = ({data, backHandler}) => {
       <View style={styles.container}>
         <Text style={styles.categoryText}>{category}</Text>
         <Text style={styles.nameText}>{name}</Text>
-        <View style={styles.priceContainer}>
-          <Text style={styles.priceText}>${price}</Text>
-        </View>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={{uri: image}} />
         </View>
@@ -42,7 +39,12 @@ const Product = ({data, backHandler}) => {
           <Text>Size</Text>
           <Text style={styles.heightText}>{size}</Text>
         </View>
-        <View style={styles.iconContainer}></View>
+        <View style={styles.iconContainer}>
+          <Image style={styles.ic_cart} source={ic_cart} />
+          <View style={styles.heartContainer}>
+            <Image style={styles.ic_heart} source={ic_heart} />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -51,6 +53,10 @@ const Product = ({data, backHandler}) => {
 const styles = ScaledSheet.create({
   container: {
     paddingHorizontal: '10@ms',
+    backgroundColor: '#8CB369',
+    borderBottomStartRadius: '20@s',
+    borderBottomEndRadius: '20@s',
+    paddingVertical: 20,
   },
   image: {
     width: 200,
@@ -82,8 +88,8 @@ const styles = ScaledSheet.create({
     position: 'absolute',
   },
   ic_heart: {
-    width: '20@ms',
-    height: '20@vs',
+    width: 21,
+    height: 18,
   },
   ic_cart: {
     height: '50@vs',
@@ -92,11 +98,22 @@ const styles = ScaledSheet.create({
     marginVertical: '10@vs',
   },
   iconContainer: {
+    position: 'absolute',
     flexDirection: 'row',
     alignItems: 'center',
-    width: '80@s',
-    marginLeft: '10@s',
+    width: '110@s',
+    marginLeft: '30@s',
     justifyContent: 'space-between',
+    bottom: '-30@s',
+  },
+  heartContainer: {
+    width: '44@s',
+    height: '42@s',
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 1,
+    borderRadius: '10@s',
   },
 });
 
